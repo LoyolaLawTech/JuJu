@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Choice 1",
+        "cost": 1200,
+        "interval": "month"
+    },
+    {
+        "name": "Choice 2",
+        "cost": 3600,
+        "interval": null 
+    },
+    {
+        "name": "Choice 3",
+        "cost": 19100,
+        "interval": "year"
+    },
+    {
+        "name": "Choice 4",
+        "cost": 800,
+        "interval": "month"
+    },
+    {
+        "name": "Choice 5",
+        "cost": 2700,
+        "interval": null 
+    },
+    {
+        "name": "Choice 6",
+        "cost": 24200,
+        "interval": "year"
+    }
+]

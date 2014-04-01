@@ -1,31 +1,31 @@
 [
     {
-        "name": "Choice 1",
+        "name": "Juvenile Detention",
         "cost": 1200,
-        "interval": "months"
+        "interval": "years"
     },
     {
-        "name": "Choice 2",
+        "name": "GED Classes",
         "cost": 3600,
         "interval": null 
     },
     {
-        "name": "Choice 3",
+        "name": "Boot Camp",
         "cost": 19100,
-        "interval": "years"
+        "interval": "months"
     },
     {
-        "name": "Choice 4",
+        "name": "Peer Group Program",
         "cost": 800,
         "interval": "months"
     },
     {
-        "name": "Choice 5",
+        "name": "Life Skills Training",
         "cost": 2700,
         "interval": null 
     },
     {
-        "name": "Choice 6",
+        "name": "Alternative Schooling",
         "cost": 24200,
         "interval": "years"
     }

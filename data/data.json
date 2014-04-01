@@ -2,7 +2,7 @@
     {
         "name": "Choice 1",
         "cost": 1200,
-        "interval": "month"
+        "interval": "months"
     },
     {
         "name": "Choice 2",
@@ -12,12 +12,12 @@
     {
         "name": "Choice 3",
         "cost": 19100,
-        "interval": "year"
+        "interval": "years"
     },
     {
         "name": "Choice 4",
         "cost": 800,
-        "interval": "month"
+        "interval": "months"
     },
     {
         "name": "Choice 5",
@@ -27,6 +27,6 @@
     {
         "name": "Choice 6",
         "cost": 24200,
-        "interval": "year"
+        "interval": "years"
     }
 ]

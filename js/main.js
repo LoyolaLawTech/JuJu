@@ -17,7 +17,7 @@ function addVals(row) {
 
     $.each(rowTotals, function() {
         if (isNaN($(this).html())){
-            totalCost = totalCost + parseInt($(this).html().replace(/\D/g,''));
+            totalCost = totalCost + parseFloat($(this).html().replace(/\,/g,''));
         }
     });
     sectionTotal.html(totalCost.toLocaleString());
@@ -27,19 +27,18 @@ function addVals(row) {
 $(document).ready(function (){
     $.getJSON('data/data.json', null)
         .done(function (data) {
-            console.log('doo');
             $.each(data, function (index, prop){
                 var item;
 
                 if (prop.interval === null){
                     item = '<div class="row"> <div class="col-xs-6"> <button type="button" class="btn btn-default no-interval" data-toggle="button" data-amount="' +
                     prop.cost + '">' + prop.name + '</button> </div> <div class="col-xs-4"> </div>' +
-                    '<div class="col-xs2 hidden-xs"><span class="label label-primary row-total "></span> </div></div>';
+                    '<div class="col-xs2 hidden-xs"><span class="badge badge-info row-total "></span> </div></div>';
 
                 } else {
                     item = '<div class="row"> <div class="col-xs-6"> <button type="button" class="btn btn-default has-interval" data-toggle="button" data-amount="' +
                     prop.cost + '">' + prop.name + '</button> </div> <div class="col-xs-4"> <input class="form-control is-interval" type="number" name="num_val" placeholder="' +
-                    prop.interval + '"></div>' + '<div class="col-xs2 hidden-xs"><span class="label label-primary row-total "></span> </div></div>';
+                    prop.interval + '"></div>' + '<div class="col-xs2 hidden-xs"><span class="badge badge-info row-total "></span> </div></div>';
                 }
                 $('.panel-body').append(item);
             });

@@ -38,7 +38,7 @@ $(document).ready(function (){
                 } else {
                     item = '<div class="row"> <div class="col-xs-6"> <button type="button" class="btn btn-default has-interval" data-toggle="button" data-amount="' +
                     prop.cost + '">' + prop.name + '</button> </div> <div class="col-xs-4"> <input class="form-control is-interval" type="number" name="num_val" placeholder="' +
-                    prop.interval + '"></div>' + '<div class="col-xs2 hidden-xs"><span class="label label-info row-total "></span> </div></div>';
+                    prop.interval + '"></div>' + '<div class="col-xs2 hidden-xs"><span class="label label-default row-total "></span> </div></div>';
                 }
                 $('.panel-body').append(item);
             });
@@ -55,6 +55,11 @@ $(document).ready(function (){
 
     $('.container').on('click','.no-interval', function (){
         addVals($(this).closest('.row'));
+    });
+
+    //User starts clicking on second sentencing choices
+    $('.container').on('click','.panel-body:eq(1) button', function (){
+        alert('this fired');
     });
 });
 

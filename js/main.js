@@ -33,7 +33,7 @@ $(document).ready(function (){
                 if (prop.interval === null){
                     item = '<div class="row"> <div class="col-xs-6"> <button type="button" class="btn btn-default no-interval" data-toggle="button" data-amount="' +
                     prop.cost + '">' + prop.name + '</button> </div> <div class="col-xs-4"> </div>' +
-                    '<div class="col-xs2 hidden-xs"><span class="label label-info row-total "></span> </div></div>';
+                    '<div class="col-xs2 hidden-xs"><span class="label label-default row-total "></span> </div></div>';
 
                 } else {
                     item = '<div class="row"> <div class="col-xs-6"> <button type="button" class="btn btn-default has-interval" data-toggle="button" data-amount="' +

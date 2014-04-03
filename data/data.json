@@ -2,26 +2,31 @@
     {
         "name": "Probation (active)",
         "cost": 37.59,
-        "interval": "days"
+        "interval": "days",
+        "help": "Text which describes this option"
     },
     {
         "name": "Secure Custody",
         "cost": 323.73,
-        "interval": "days" 
+        "interval": "days", 
+        "help": "Text which describes this option"
     },
     {
         "name": "Nonsecure Custody",
         "cost": 258.62,
-        "interval": "days"
+        "interval": "days",
+        "help": "Text which describes this option"
     },
     {
         "name": "Functional Family Therapy",
         "cost": 3621,
-        "interval": null
+        "interval": null,
+        "help": "Text which describes this option"
     },
     {
         "name": "Multisystemic Therapy",
         "cost": 7370,
-        "interval": null 
+        "interval": null, 
+        "help": "Text which describes this option"
     }
 ]

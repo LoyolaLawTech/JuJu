@@ -25,8 +25,8 @@ function addVals(row) {
 }
 
 function getDiff() {
-    var total1 = $('.panel-footer:eq(0) .section-total').html().replace(/[$,]/g,''),
-    total2 = $('.panel-footer:eq(1) .section-total').html().replace(/[$,]/g,''),
+    var total1 = parseFloat($('.panel-footer:eq(0) .section-total').html().replace(/[$,]/g,'')),
+    total2 = parseFloat($('.panel-footer:eq(1) .section-total').html().replace(/[$,]/g,'')),
     comparisonText,
     difference;
 
@@ -40,7 +40,6 @@ function getDiff() {
 
     $('.diff-amount').html(difference);
     $('.diff-comparison').html(comparisonText);
-    $('.jumbotron').removeClass('hidden');
 }
 
 $(document).ready(function (){
@@ -76,8 +75,12 @@ $(document).ready(function (){
         addVals($(this).closest('.row'));
     });
 
-    $('.panel-footer:eq(1)').on('DOMSubtreeModified','.section-total', function (){
+    $('.panel-footer').on('DOMSubtreeModified','.section-total', function (){
         getDiff();
+        //Don't reveal until we have data in panel 2 to compare
+        if ($(this).closest('.panel-danger').length > 0){
+            $('.jumbotron').removeClass('hidden');
+        }
     });
 });
 

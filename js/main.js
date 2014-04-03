@@ -24,22 +24,23 @@ function addVals(row) {
     sectionTotal.html(totalCost.toLocaleString('en-US', {style: 'currency', currency: 'USD'}));
 }
 
-function getDiff(){
+function getDiff() {
     var total1 = $('.panel-footer:eq(0) .section-total').html().replace(/[$,]/g,''),
     total2 = $('.panel-footer:eq(1) .section-total').html().replace(/[$,]/g,''),
     comparisonText,
     difference;
 
-    console.log(total1 + ' ' + total2);
     if (total1 > total2){
-        difference = total1 - total2;
+        difference = (total1 - total2).toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         comparisonText = 'more expensive than';
-        console.log('total1 is ' + difference + ' ' +  comparisonText + 'total2' );
     } else {
-        difference = total2 - total1;
+        difference = (total2 - total1).toLocaleString('en-US', {style: 'currency', currency: 'USD'});
         comparisonText = 'cheaper than';
-        console.log('total1 is ' + difference + ' ' +  comparisonText + 'total2' );
     }
+
+    $('.diff-amount').html(difference);
+    $('.diff-comparison').html(comparisonText);
+    $('.jumbotron').removeClass('hidden');
 }
 
 $(document).ready(function (){
@@ -75,8 +76,7 @@ $(document).ready(function (){
         addVals($(this).closest('.row'));
     });
 
-    //User starts clicking on second sentencing choices
-    $('.container').on('click','.panel-body:eq(1) button', function (){
+    $('.panel-footer:eq(1)').on('DOMSubtreeModified','.section-total', function (){
         getDiff();
     });
 });

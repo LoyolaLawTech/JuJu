@@ -8,20 +8,38 @@ function addVals(row) {
     sectionTotal = row.closest('.panel-body').siblings('.panel-footer').find('.section-total');
 
     if (multiplier){
-        rowTotal.html((baseVal * multiplier).toLocaleString()).show();
+        rowTotal.html((baseVal * multiplier).toLocaleString('en-US', {style: 'currency', currency: 'USD'})).show();
     } else {
-        rowTotal.html(baseVal.toLocaleString()).show();
+        rowTotal.html(baseVal.toLocaleString('en-US', {style: 'currency', currency: 'USD'})).show();
     }
-    
+
     var rowTotals = row.closest('.panel-body').find('span.row-total');
 
     $.each(rowTotals, function() {
-        if (isNaN($(this).html())){
-            totalCost = totalCost + parseFloat($(this).html().replace(/\,/g,''));
+        var strip = $(this).html().replace(/\$/g, '');
+        if (isNaN(strip)){
+            totalCost = totalCost + parseFloat(strip.replace(/\,/g,''));
         }
     });
-    sectionTotal.html(totalCost.toLocaleString());
-    console.log(totalCost);
+    sectionTotal.html(totalCost.toLocaleString('en-US', {style: 'currency', currency: 'USD'}));
+}
+
+function getDiff(){
+    var total1 = $('.panel-footer:eq(0) .section-total').html().replace(/[$,]/g,''),
+    total2 = $('.panel-footer:eq(1) .section-total').html().replace(/[$,]/g,''),
+    comparisonText,
+    difference;
+
+    console.log(total1 + ' ' + total2);
+    if (total1 > total2){
+        difference = total1 - total2;
+        comparisonText = 'more expensive than';
+        console.log('total1 is ' + difference + ' ' +  comparisonText + 'total2' );
+    } else {
+        difference = total2 - total1;
+        comparisonText = 'cheaper than';
+        console.log('total1 is ' + difference + ' ' +  comparisonText + 'total2' );
+    }
 }
 
 $(document).ready(function (){
@@ -59,7 +77,7 @@ $(document).ready(function (){
 
     //User starts clicking on second sentencing choices
     $('.container').on('click','.panel-body:eq(1) button', function (){
-        alert('this fired');
+        getDiff();
     });
 });
 

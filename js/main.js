@@ -82,7 +82,7 @@ $(document).ready(function (){
             clearRow($(this));
             addColumn($(this).closest('.panel-body'));
         } else {
-            $(this).closest('.row').find('input').show().change(function (e){
+            $(this).closest('.row').find('input').show().bind('input', function (e){
                 addRow($(this).closest('.row'));
                 addColumn($(this).closest('.panel-body'));
             });

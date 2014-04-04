@@ -1,19 +1,22 @@
-function addVals(row) {
+function addRow(row) {
 
     var totalCost = 0,
     rowCost = 0,
     baseVal = row.find('button').data('amount'),
     multiplier = row.find('input').val(),
-    rowTotal = row.find('span.row-total'),
-    sectionTotal = row.closest('.panel-body').siblings('.panel-footer').find('.section-total');
+    rowTotal = row.find('span.row-total');
 
     if (multiplier){
         rowTotal.html((baseVal * multiplier).toLocaleString('en-US', {style: 'currency', currency: 'USD'})).show();
     } else {
         rowTotal.html(baseVal.toLocaleString('en-US', {style: 'currency', currency: 'USD'})).show();
     }
+}
 
-    var rowTotals = row.closest('.panel-body').find('span.row-total');
+function addColumn(panel) {
+    var rowTotals = panel.find('span.row-total'),
+    sectionTotal = panel.siblings('.panel-footer').find('.section-total'),
+    totalCost = 0;
 
     $.each(rowTotals, function() {
         var strip = $(this).html().replace(/\$/g, '');
@@ -22,6 +25,15 @@ function addVals(row) {
         }
     });
     sectionTotal.html(totalCost.toLocaleString('en-US', {style: 'currency', currency: 'USD'}));
+}
+
+function clearRow(el) {
+
+    el.removeClass('active');
+    el.closest('.row').find('.row-total').html('');
+    if (el.hasClass('has-interval')){
+        el.closest('.row').find('input').val('').hide();
+    }
 }
 
 function getDiff() {
@@ -66,13 +78,25 @@ $(document).ready(function (){
         });
 
     $('.container').on('click','.has-interval', function (){
-        $(this).closest('.row').find('input').show().change(function (e){
-            addVals($(this).closest('.row'));
-        });
+        if ($(this).hasClass('active')){
+            clearRow($(this));
+            addColumn($(this).closest('.panel-body'));
+        } else {
+            $(this).closest('.row').find('input').show().change(function (e){
+                addRow($(this).closest('.row'));
+                addColumn($(this).closest('.panel-body'));
+            });
+        }
     });
 
     $('.container').on('click','.no-interval', function (){
-        addVals($(this).closest('.row'));
+        if ($(this).hasClass('active')){
+            clearRow($(this));
+            addColumn($(this).closest('.panel-body'));
+        } else {
+            addRow($(this).closest('.row'));
+            addColumn($(this).closest('.panel-body'));
+        }
     });
 
     $('.panel-footer').on('DOMSubtreeModified','.section-total', function (){

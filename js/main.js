@@ -54,6 +54,49 @@ function getDiff() {
     $('.diff-comparison').html(comparisonText);
 }
 
+function sendEmail(){
+
+    var subj = '?subject=JuJu Report';
+    var body = 'Sentence 1\n=====================\n\n';
+    var panel1Data = $('.panel-body:eq(0) .row');
+    $.each(panel1Data, function () {
+        var activeBtn = $(this).find('button');
+        if (activeBtn.hasClass('active')){
+            body += activeBtn.html();
+            if (activeBtn.hasClass('has-interval')){
+                body += '     ' + $(this).find('input').val() + ' ' +
+                $(this).find('input').attr('placeholder');
+            }
+            body += '     ' + $(this).find('.row-total').html();
+            body += '\n';
+        }
+
+    });
+
+    body += '\nTotal:' + $('.panel-footer:eq(0)').find('.section-total').html() + '\n\n';
+
+    body += 'Sentence 2\n=====================\n\n';
+    var panel2Data = $('.panel-body:eq(1) .row');
+    $.each(panel2Data, function () {
+        var activeBtn = $(this).find('button');
+        if (activeBtn.hasClass('active')){
+            body += activeBtn.html();
+            if (activeBtn.hasClass('has-interval')){
+                body += '     ' + $(this).find('input').val() + ' ' +
+                $(this).find('input').attr('placeholder');
+            }
+            body += '     ' + $(this).find('.row-total').html();
+            body += '\n';
+        }
+
+    });
+
+    body += '\nTotal:' + $('.panel-footer:eq(1)').find('.section-total').html() + '\n\n';
+    body += 'Result\n=====================\n\n';
+    body += $('.jumbotron h4').text().trim();
+    location.href='mailto:' + subj + '&body=' + encodeURI(body);
+}
+
 $(document).ready(function (){
     $.getJSON('data/data.json', null)
         .done(function (data) {
@@ -106,5 +149,14 @@ $(document).ready(function (){
             $('.jumbotron').removeClass('hidden');
         }
     });
+
 });
 
+//Utility buttons
+$('.send-email').click(function (e) {
+    sendEmail();
+});
+
+$('.redo').click(function (e) {
+    location.reload();
+});

@@ -15,15 +15,44 @@
 
     <p>Help text will go here.</p>
 
-    <h3 id="disclaimer"> Disclaimer</h3>
-    <p>This app is for informational purposes only and should not be considered legal advice.
-    Determinations about good time are made by the La. Department of Corrections only. Their determinations
-    may differ from the information provided here.</p>
+    <span class="explain-alternatives"></span>
+
+    <h3 id="data-sources"> <span class="back-nav glyphicon glyphicon-chevron-left"></span> Data Sources</h3>
+    <p>This will explain where the data comes from and how costs were calculated.</p>
+
+    <h3 id="disclaimer"> <span class="back-nav glyphicon glyphicon-chevron-left"></span> Disclaimer</h3>
+    <p>This app is for informational purposes only and should not be considered legal advice. </p>
+
+    <h3 id="license"> <span class="back-nav glyphicon glyphicon-chevron-left"></span> License</h3>
+    <p>Copyright (c) 2014 Monika Arceneaux, Justin Cantu, Hank Pailet, Judson Mitchell</p>
+
+    <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+    associated documentation files (the "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+    sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+    subject to the following conditions:</p>
+
+    <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+    THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+    OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </p>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
 <script type="text/javascript" charset="utf-8">
-   $(document).ready(function () { 
+    $.getJSON('data/data.json', null)
+        .done(function (data) {
+            var helpText = '';
+            $.each(data, function (index, prop){
+                helpText += '<h4>' + prop.name + '</h4>' +
+                '<p>' + prop.help + '</p>';
+            })
+            $('.explain-alternatives').html(helpText);
+        });
+   
+    $(document).ready(function () { 
         $('.back-nav').click(function () {
             window.history.back();
         });

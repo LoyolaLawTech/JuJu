@@ -27,6 +27,6 @@
         "name": "Multisystemic Therapy",
         "cost": 7370,
         "interval": null, 
-        "help": "Text which describes this option"
+        "help": "Text  which describes this option"
     }
 ]

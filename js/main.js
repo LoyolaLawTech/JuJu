@@ -3,8 +3,36 @@ function addRow(row) {
     var totalCost = 0,
     rowCost = 0,
     baseVal = row.find('button').data('amount'),
+    defaultInverval = row.find('button').data('interval'),
     multiplier = row.find('input').val(),
+    userInterval = row.find('select').val(),
     rowTotal = row.find('span.row-total');
+
+    //First cook the amount from data down to per day
+    if (defaultInverval !== 'days'){
+
+        if (defaultInverval === 'years') {
+            baseVal = baseVal / 365;
+        }
+
+        if (defaultInverval === 'months') {
+            baseVal = baseVal / 30;
+        }
+    }
+
+    //Cook user input down to days
+    if (userInterval !== 'days'){
+        if (userInterval === 'years'){
+            multiplier = multiplier * 365;
+
+        }
+
+        if (userInterval === 'months'){
+            multiplier = multiplier * 30;
+
+        }
+
+    }
 
     if (multiplier){
         rowTotal.html((baseVal * multiplier).toLocaleString('en-US', {style: 'currency', currency: 'USD'})).show();
@@ -104,13 +132,18 @@ $(document).ready(function (){
                 var item;
 
                 if (prop.interval === null){
-                    item = '<div class="row"> <div class="col-xs-6"> <button type="button" class="btn btn-default no-interval" data-toggle="button" data-amount="' +
-                    prop.cost + '">' + prop.name + '</button> </div> <div class="col-xs-4"> </div>' +
-                    '<div class="col-xs2 hidden-xs"><span class="label label-default row-total "></span> </div></div>';
+                    item = '<div class="row"> <div class="col-sm-5"> <button type="button" class="btn btn-default no-interval" data-toggle="button" data-amount="' +
+                    prop.cost + '">' + prop.name + '</button> </div> <div class="col-sm-5"> </div>' +
+                    '<div class="col-sm-2 hidden-xs"><span class="label label-default row-total "></span> </div></div>';
 
                 } else {
-                    item = '<div class="row"> <div class="col-xs-5"> <button type="button" class="btn btn-default has-interval" data-toggle="button" data-amount="' +
-                    prop.cost + '">' + prop.name + '</button> </div> <div class="col-xs-5"><form class="form-inline"> <div class="input-group"> <div class="form-group"> <input type="number" class="form-control is-interval" name="num_val" placeholder="0"> </div> <div class="form-group"> <select class="form-control"> <option>Years</option> <option>Months</option> <option>Days</option> </select> </form></div> </div></div> <div class="col-xs-2 hidden-xs"><span class="label label-default row-total "></span> </div> </div>';
+                    item = '<div class="row"> <div class="col-sm-5"> <button type="button" class="btn btn-default has-interval" data-toggle="button" data-amount="' +
+                    prop.cost + '" data-interval="' + prop.interval  + '">' + prop.name + '</button> </div>' +
+                    '<div class="col-sm-5"><form class="form-inline"> <div class="input-group time-combo">' +
+                    '<div class="form-group"> <input type="number" class="form-control is-interval" name="num_val" placeholder="0"> </div>' +
+                    '<div class="form-group"> <select class="form-control">' +
+                    '<option value="years">Years</option> <option value="months">Months</option> <option value="days">Days</option> </select> </form></div> </div></div> '+
+                    '<div class="col-sm-2 hidden-xs"><span class="label label-default row-total "></span> </div> </div>';
                 }
                 $('.panel-body').append(item);
             });
@@ -124,7 +157,7 @@ $(document).ready(function (){
             clearRow($(this));
             addColumn($(this).closest('.panel-body'));
         } else {
-            $(this).closest('.row').find('input').show().bind('input', function (e){
+            $(this).closest('.row').find('.time-combo').show().bind('input', function (e){
                 addRow($(this).closest('.row'));
                 addColumn($(this).closest('.panel-body'));
             });

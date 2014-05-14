@@ -96,6 +96,11 @@ body { padding-top: 70px; }
 
 .panel-body .form-inline .input-group .is-interval{width:70px }
 
+.panel-body .form-inline .time-combo{display:none}
+
+.panel-body .form-inline .time-combo select{width:100px}
+
+.jumbotron h4 {line-height: 1.5}
 
 
 

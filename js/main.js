@@ -109,9 +109,8 @@ $(document).ready(function (){
                     '<div class="col-xs2 hidden-xs"><span class="label label-default row-total "></span> </div></div>';
 
                 } else {
-                    item = '<div class="row"> <div class="col-xs-6"> <button type="button" class="btn btn-default has-interval" data-toggle="button" data-amount="' +
-                    prop.cost + '">' + prop.name + '</button> </div> <div class="col-xs-4"> <input class="form-control is-interval" type="number" name="num_val" placeholder="' +
-                    prop.interval + '"></div>' + '<div class="col-xs2 hidden-xs"><span class="label label-default row-total "></span> </div></div>';
+                    item = '<div class="row"> <div class="col-xs-5"> <button type="button" class="btn btn-default has-interval" data-toggle="button" data-amount="' +
+                    prop.cost + '">' + prop.name + '</button> </div> <div class="col-xs-5"><form class="form-inline"> <div class="input-group"> <div class="form-group"> <input type="number" class="form-control is-interval" name="num_val" placeholder="0"> </div> <div class="form-group"> <select class="form-control"> <option>Years</option> <option>Months</option> <option>Days</option> </select> </form></div> </div></div> <div class="col-xs-2 hidden-xs"><span class="label label-default row-total "></span> </div> </div>';
                 }
                 $('.panel-body').append(item);
             });

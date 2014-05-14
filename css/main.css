@@ -94,7 +94,7 @@ textarea {
 body { padding-top: 70px; }
 .panel-body .row {margin-bottom: 15px}
 
-.is-interval{display:none}
+.panel-body .form-inline .input-group .is-interval{width:70px }
 
 
 

@@ -134,7 +134,7 @@ $(document).ready(function (){
                 if (prop.interval === null){
                     item = '<div class="row"> <div class="col-sm-5"> <button type="button" class="btn btn-default no-interval" data-toggle="button" data-amount="' +
                     prop.cost + '">' + prop.name + '</button> </div> <div class="col-sm-5"> </div>' +
-                    '<div class="col-sm-2 hidden-xs"><span class="label label-default row-total "></span> </div></div>';
+                    '<div class="col-sm-2 hidden-xs"><span class="label label-default row-total pull-right"></span> </div></div>';
 
                 } else {
                     item = '<div class="row"> <div class="col-sm-5"> <button type="button" class="btn btn-default has-interval" data-toggle="button" data-amount="' +
@@ -143,7 +143,7 @@ $(document).ready(function (){
                     '<div class="form-group"> <input type="number" class="form-control is-interval" name="num_val" placeholder="0"> </div>' +
                     '<div class="form-group"> <select class="form-control">' +
                     '<option value="years">Years</option> <option value="months">Months</option> <option value="days">Days</option> </select> </form></div> </div></div> '+
-                    '<div class="col-sm-2 hidden-xs"><span class="label label-default row-total "></span> </div> </div>';
+                    '<div class="col-sm-2 hidden-xs"><span class="label label-default row-total pull-right "></span> </div> </div>';
                 }
                 $('.panel-body').append(item);
             });

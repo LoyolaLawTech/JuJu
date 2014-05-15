@@ -7,18 +7,19 @@
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <style type="text/css" media="all">
     .spacer{color: #2b3e50;}    
+    dd {margin-left:50px}
 </style>
 </head>
 <body>
 <div class="container">
     <h2 id="help-text"><span class="back-nav glyphicon glyphicon-chevron-left"></span> Help</h2>
 
-    <p>Help text will go here.</p>
-
-    <span class="explain-alternatives"></span>
+    <p>JuJu allows the user to calculate the difference in costs between various juvenile criminal sentences. First select the appropriate sentence and the duration (if applicable) under Sentence 1. Repeat the same process for an alternative sentence under Sentence 2. JuJu will automatically calculate the total cost of each sentence and display the difference in cost between those two sentences.</p>
 
     <h3 id="data-sources"> <span class="back-nav glyphicon glyphicon-chevron-left"></span> Data Sources</h3>
-    <p>This will explain where the data comes from and how costs were calculated.</p>
+    <p>Here is the information for each sentencing alternative.</p>
+
+    <dl class="explain-alternatives"></dl>
 
     <h3 id="disclaimer"> <span class="back-nav glyphicon glyphicon-chevron-left"></span> Disclaimer</h3>
     <p>This app is for informational purposes only and should not be considered legal advice. </p>
@@ -46,8 +47,8 @@
         .done(function (data) {
             var helpText = '';
             $.each(data, function (index, prop){
-                helpText += '<h4>' + prop.name + '</h4>' +
-                '<p>' + prop.help + '</p>';
+                helpText += '<dt>' + prop.name + '</dt>' +
+                '<dd>' + prop.help + '</dd>';
             })
             $('.explain-alternatives').html(helpText);
         });

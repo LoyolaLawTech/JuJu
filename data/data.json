@@ -3,30 +3,30 @@
         "name": "Probation (active)",
         "cost": 37.59,
         "interval": "days",
-        "help": "Text which describes this option"
+        "help": "$37.59 /day. Average, not marginal, cost, with figures from FY 2012 budget."
     },
     {
         "name": "Secure Custody",
         "cost": 323.73,
         "interval": "days", 
-        "help": "Text which describes this option"
+        "help": " $323.73 /day. Average, not marginal, cost, with figures from FY 2012 budget."
     },
     {
         "name": "Nonsecure Custody",
         "cost": 258.62,
         "interval": "days",
-        "help": "Text which describes this option"
+        "help": " $112.65 - $258.62 /day. Marginal range of daily costs per child under OJJ contracts with group homes as of June 30, 2013.  Per legislative auditor.  There are 12 group homes under contract; the cost range given is from least to most expensive.  "
     },
     {
         "name": "Functional Family Therapy",
         "cost": 3621,
         "interval": null,
-        "help": "Text which describes this option"
+        "help": " $3,621. Cost is lifecycle for the entire average duration that a child is in the program, and as of 2012.  Per Washington State Institute for Public Policy.  Note that this is a program in which a child can be enrolled while on probation/in his or her home, not a placement, as such.  Per WSIPP the benefit to cost ratio on FFT is $10.42/$1.00, with benefits minus costs of $30,706 per child in FFT. "
     },
     {
         "name": "Multisystemic Therapy",
         "cost": 7370,
         "interval": null, 
-        "help": "Text  which describes this option"
+        "help": " $7,370. Cost is lifecycle for the entire average duration that a child is in the program, and as of 2012.  Per Washington State Institute for Public Policy.  Note that this is a program in which a child can be enrolled while on probation/in his or her home, not a placement, as such.  Per WSIPP the benefit to cost ratio on MST is $4.36/$1.00, with benefits minus costs of $ $24,751 per child in FFT. "
     }
 ]

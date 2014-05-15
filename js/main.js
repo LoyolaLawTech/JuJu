@@ -57,7 +57,8 @@ function clearRow(el) {
     el.removeClass('active');
     el.closest('.row').find('.row-total').html('');
     if (el.hasClass('has-interval')){
-        el.closest('.row').find('input').val('').hide();
+        el.closest('.row').find('input').val('');
+        el.closest('.row').find('.time-combo').hide();
     }
 }
 

@@ -24,14 +24,11 @@ function addRow(row) {
     if (userInterval !== 'days'){
         if (userInterval === 'years'){
             multiplier = multiplier * 365;
-
         }
 
         if (userInterval === 'months'){
             multiplier = multiplier * 30;
-
         }
-
     }
 
     if (multiplier){
@@ -132,12 +129,12 @@ $(document).ready(function (){
                 var item;
 
                 if (prop.interval === null){
-                    item = '<div class="row"> <div class="col-sm-5"> <button type="button" class="btn btn-default no-interval" data-toggle="button" data-amount="' +
+                    item = '<div class="row"> <div class="col-sm-5"> <button type="button" class="btn btn-default no-interval" data-amount="' +
                     prop.cost + '">' + prop.name + '</button> </div> <div class="col-sm-5"> </div>' +
                     '<div class="col-sm-2 hidden-xs"><span class="label label-default row-total pull-right"></span> </div></div>';
 
                 } else {
-                    item = '<div class="row"> <div class="col-sm-5"> <button type="button" class="btn btn-default has-interval" data-toggle="button" data-amount="' +
+                    item = '<div class="row"> <div class="col-sm-5"> <button type="button" class="btn btn-default has-interval" data-amount="' +
                     prop.cost + '" data-interval="' + prop.interval  + '">' + prop.name + '</button> </div>' +
                     '<div class="col-sm-5"><form class="form-inline"> <div class="input-group time-combo">' +
                     '<div class="form-group"> <input type="number" class="form-control is-interval" name="num_val" placeholder="0"> </div>' +
@@ -157,6 +154,7 @@ $(document).ready(function (){
             clearRow($(this));
             addColumn($(this).closest('.panel-body'));
         } else {
+            $(this).addClass('active');
             $(this).closest('.row').find('.time-combo').show().bind('input', function (e){
                 addRow($(this).closest('.row'));
                 addColumn($(this).closest('.panel-body'));
@@ -164,11 +162,12 @@ $(document).ready(function (){
         }
     });
 
-    $('.container').on('click','.no-interval', function (){
+    $('.container').on('click','.no-interval', function (e){
         if ($(this).hasClass('active')){
             clearRow($(this));
             addColumn($(this).closest('.panel-body'));
         } else {
+            $(this).addClass('active');
             addRow($(this).closest('.row'));
             addColumn($(this).closest('.panel-body'));
         }

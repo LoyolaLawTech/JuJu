@@ -19,6 +19,10 @@ function addRow(row) {
     userInterval = row.find('select').val(),
     rowTotal = row.find('span.row-total');
 
+    if (multiplier === ''){
+        return;
+    }
+
     //First cook the amount from data down to per day
     if (defaultInverval !== 'days'){
 

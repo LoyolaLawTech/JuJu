@@ -1,3 +1,14 @@
+Number.prototype.formatMoney = function(c, d, t){
+    var n = this;
+    c = isNaN(c = Math.abs(c)) ? 2 : c,
+    d = d === undefined ? '.' : d,
+    t = t === undefined ? ',' : t;
+    var s = n < 0 ? '-' : '',
+    i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + '',
+    j = (j = i.length) > 3 ? j % 3 : 0;
+    return s + '$' + (j ? i.substr(0, j) + t : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, '$1' + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : '');
+}; //Thanks to this fine gentleman: http://stackoverflow.com/a/149099/49359
+
 function addRow(row) {
 
     var totalCost = 0,
@@ -32,9 +43,9 @@ function addRow(row) {
     }
 
     if (multiplier){
-        rowTotal.html((baseVal * multiplier).toLocaleString('en-US', {style: 'currency', currency: 'USD'})).show();
+        rowTotal.html((baseVal * multiplier).formatMoney(2,'.',',')).show();
     } else {
-        rowTotal.html(baseVal.toLocaleString('en-US', {style: 'currency', currency: 'USD'})).show();
+        rowTotal.html(baseVal.formatMoney(2,'.',',')).show();
     }
 }
 
@@ -49,7 +60,7 @@ function addColumn(panel) {
             totalCost = totalCost + parseFloat(strip.replace(/\,/g,''));
         }
     });
-    sectionTotal.html(totalCost.toLocaleString('en-US', {style: 'currency', currency: 'USD'}));
+    sectionTotal.html(totalCost.formatMoney(2,'.',','));
 }
 
 function clearRow(el) {
@@ -69,10 +80,10 @@ function getDiff() {
     difference;
 
     if (total1 > total2){
-        difference = (total1 - total2).toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+        difference = (total1 - total2).formatMoney(2,'.',',');
         comparisonText = 'more expensive than';
     } else {
-        difference = (total2 - total1).toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+        difference = (total2 - total1).formatMoney(2,'.',',');
         comparisonText = 'cheaper than';
     }
 

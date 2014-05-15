@@ -86,9 +86,12 @@ function getDiff() {
     if (total1 > total2){
         difference = (total1 - total2).formatMoney(2,'.',',');
         comparisonText = 'more expensive than';
-    } else {
+    } else if (total1 < total2) {
         difference = (total2 - total1).formatMoney(2,'.',',');
         comparisonText = 'cheaper than';
+    } else {
+        difference = '';
+        comparisonText = 'the same as';
     }
 
     $('.diff-amount').html(difference);

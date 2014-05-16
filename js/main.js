@@ -109,7 +109,7 @@ function sendEmail(){
             body += activeBtn.html();
             if (activeBtn.hasClass('has-interval')){
                 body += '     ' + $(this).find('input').val() + ' ' +
-                $(this).find('input').attr('placeholder');
+                $(this).find('select').val();
             }
             body += '     ' + $(this).find('.row-total').html();
             body += '\n';
@@ -127,7 +127,7 @@ function sendEmail(){
             body += activeBtn.html();
             if (activeBtn.hasClass('has-interval')){
                 body += '     ' + $(this).find('input').val() + ' ' +
-                $(this).find('input').attr('placeholder');
+                $(this).find('select').val();
             }
             body += '     ' + $(this).find('.row-total').html();
             body += '\n';

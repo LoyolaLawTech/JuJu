@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "org.loyolalawtech.juju"
+        versionCode = "1"
+        version     = "1.0.0">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>JuJu</name>
+
+    <description>A tool to help lawyers argue for less restrictive and expensive sentences in juvenile cases</description>
+
+    <author href="http://loyolalawtech.org" email="judson@loyolalawtech.org">
+        Judson Mitchell, Monika Arceneaux, Justin Cantu, Hank Pailet
+    </author>
+
+    <icon src="icon.png" />
+
+    <preference name="permissions" value="none" />
+    <preference name="android-targetSdkVersion" value="14" />
+    <!--
+    <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
+    <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
+    <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
+    <icon gap:platform="ios" height="57" src="res/icon/ios/icon-57.png" width="57" />
+    <icon gap:platform="ios" height="72" src="res/icon/ios/icon-72.png" width="72" />
+    <gap:splash src="splash.png" />
+    <gap:splash src="splash/ios/Default.png" gap:platform="ios" width="320" height="480" />
+    <gap:splash src="splash/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="splash/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="splash/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+    <gap:splash src="splash/android/xxhdpi.png" gap:platform="android" gap:density="xhdpi" />
+    -->
+</widget>

@@ -279,7 +279,7 @@ body {
   font-size: 15px;
   line-height: 1.42857143;
   color: #ebebeb;
-  background-color: #2b3e50;
+  background-color: #1b4253;
 }
 input,
 button,
@@ -4321,7 +4321,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: #ec971f;
 }
 .label-danger {
-  background-color: #d9534f;
+  background-color: #ef5f32;
 }
 .label-danger[href]:hover,
 .label-danger[href]:focus {

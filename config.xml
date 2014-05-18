@@ -15,7 +15,8 @@
         Judson Mitchell, Monika Arceneaux, Justin Cantu, Hank Pailet
     </author>
 
-    <preference name="fullscreen" value="false" />
+    <gap:plugin name="com.phonegap.plugin.statusbar" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
     <icon src="icon.png" />
 
     <preference name="permissions" value="none" />

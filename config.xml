@@ -15,7 +15,7 @@
         Judson Mitchell, Monika Arceneaux, Justin Cantu, Hank Pailet
     </author>
 
-    <preference name="phonegap-version" value="3.3.0" />         
+    <preference name="phonegap-version" value="3.4.0" />         
     <gap:plugin name="org.apache.cordova.statusbar"/>
 
     <icon src="icon.png" />

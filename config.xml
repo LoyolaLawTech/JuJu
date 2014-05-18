@@ -15,6 +15,7 @@
         Judson Mitchell, Monika Arceneaux, Justin Cantu, Hank Pailet
     </author>
 
+    <preference name="fullscreen" value="false" />
     <icon src="icon.png" />
 
     <preference name="permissions" value="none" />

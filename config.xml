@@ -16,7 +16,7 @@
     </author>
 
     <gap:plugin name="com.phonegap.plugin.statusbar" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
     <icon src="icon.png" />
 
     <preference name="permissions" value="none" />

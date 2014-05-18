@@ -210,3 +210,27 @@ $('.send-email').click(function (e) {
 $('.redo').click(function (e) {
     location.reload();
 });
+
+//Add or remove plural from intervals, as needed.
+$('.container').on('input','.is-interval', function (e){
+    var relSelect = $(this).parent().next().find('select option');
+    if ($(this).val() < 2){
+        $.each(relSelect, function (){
+            var thisVal = $(this).val();
+            var thisTxt = $(this).text();
+            if (thisVal.slice(-1) === 's'){
+                $(this).val(thisVal.slice(0,-1));
+                $(this).text(thisTxt.slice(0,-1));
+            }
+        });
+    } else {
+        $.each(relSelect, function (){
+            var thisVal = $(this).val();
+            var thisTxt = $(this).text();
+            if (thisVal.slice(-1) !== 's'){
+                $(this).val(thisVal + 's');
+                $(this).text(thisTxt + 's');
+            }
+        });
+    }
+});

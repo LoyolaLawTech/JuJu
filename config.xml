@@ -2,14 +2,14 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "org.loyolalawtech.juju"
-        versionCode = "1"
-        version     = "1.0.0">
+        versionCode = "1.0.1"
+        version     = "1.0.1">
 
     <!-- versionCode is optional and Android only -->
 
     <name>JuJu</name>
 
-    <description>A tool to help lawyers argue for less restrictive and expensive sentences in juvenile cases</description>
+    <description>A tool to help Louisiana lawyers argue for less restrictive and expensive sentences in juvenile cases</description>
 
     <author href="http://loyolalawtech.org" email="judson@loyolalawtech.org">
         Judson Mitchell, Monika Arceneaux, Justin Cantu, Hank Pailet
@@ -25,11 +25,14 @@
 
     <preference name="permissions" value="none" />
     <preference name="android-targetSdkVersion" value="14" />
+
+    <!-- Android -->
     <icon src="res/icon/android/drawable-ldpi/ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
     <icon src="res/icon/android/drawable-hdpi/hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
     <icon src="res/icon/android/drawable-mdpi/mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
     <icon src="res/icon/android/drawable-xdpi/xhdpi.png" gap:platform="android" gap:qualifier="xdpi" />
     <icon src="res/icon/android/drawable-xxhdpi/xxhdpi.png" gap:platform="android" gap:qualifier="xxhdpi" />
+
     <!-- iPhone / iPod Touch  7-->
     <icon src="res/icon/ios7/Icon-60.png" gap:platform="ios" width="60" height="60" />
     <icon src="res/icon/ios7/Icon-60@2x.png" gap:platform="ios" width="120" height="120" />

@@ -18,7 +18,8 @@
     <!-- This preference not yet supported by Build; recompile later to check 
     https://github.com/phonegap-build/StatusBarPlugin
     -->
-    <gap:plugin name="com.phonegap.plugin.statusbar" />
+    <gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
+    <!-- <gap:plugin name="com.phonegap.plugin.statusbar" /> -->
     <preference name="StatusBarOverlaysWebView" value="true" />
 
     <icon src="icon.png" />

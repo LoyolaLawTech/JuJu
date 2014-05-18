@@ -15,12 +15,8 @@
         Judson Mitchell, Monika Arceneaux, Justin Cantu, Hank Pailet
     </author>
 
-    <!-- This preference not yet supported by Build; recompile later to check 
-    https://github.com/phonegap-build/StatusBarPlugin
-    -->
-    <gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
-    <!-- <gap:plugin name="com.phonegap.plugin.statusbar" /> -->
-    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="phonegap-version" value="3.3.0" />         
+    <gap:plugin name="org.apache.cordova.statusbar"/>
 
     <icon src="icon.png" />
 

@@ -144,6 +144,7 @@ function sendEmail(){
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady(){
+    StatusBar.hide();
     $.getJSON('data/data.json', null)
         .done(function (data) {
             $.each(data, function (index, prop){

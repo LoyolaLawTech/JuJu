@@ -141,7 +141,9 @@ function sendEmail(){
     location.href='mailto:' + subj + '&body=' + encodeURI(body);
 }
 
-$(document).ready(function (){
+document.addEventListener('deviceready', onDeviceReady, false);
+
+function onDeviceReady(){
     $.getJSON('data/data.json', null)
         .done(function (data) {
             $.each(data, function (index, prop){
@@ -200,7 +202,7 @@ $(document).ready(function (){
         }
     });
 
-});
+}
 
 //Utility buttons
 $('.send-email').click(function (e) {
